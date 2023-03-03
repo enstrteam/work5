@@ -1,0 +1,100 @@
+$side-bar-width: 256px;
+
+h1 {
+    font-size:20px;
+}
+
+.sidebar{
+    min-width: $side-bar-width;
+    min-height:100vh;
+}
+
+.maincontent {
+
+    $left-spacing: 315px - 256px;
+    padding-left: $left-spacing;
+
+    .storemanagement {
+        padding-top: 59px;
+        padding-left: 21px;
+
+        button {
+            background-color: #55C97B;
+            padding: 8px 20px 8px 16px;
+            border-radius: 5px;
+            border: none;
+            color:white;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+        }
+        .add_icon {
+            font-size: 20px;
+            font-weight: bold;
+            margin-right: 12px;
+        }
+        .wrapper {
+            padding-top: 36px;
+
+            .table_wrapper {
+                $px: 346px-315px;
+                $py:243px-215px;
+                padding: $py $px;
+                background-color: white;
+                box-shadow: 0px 11px 21px 0px #28282812;
+                border-radius: 5px;
+                table {
+                    margin-bottom: 0;
+                    tr {
+
+                        &:last-child {
+                            td {
+                                border-bottom: none;
+                            }
+                        }
+                        th {
+                            padding-bottom: 13px;
+                            padding-left: 0;
+                            font-weight: normal;
+                            color:#343434;
+                            border-bottom: none;
+                        }
+                        td {
+                            padding:13px 50px 13px 0;
+                            color:#6e6e6e;
+                        }
+        
+                    }
+                    .second_td {
+                        padding-right: 70px;
+                    }
+                    .last_td {
+                        padding-right: 0;
+                    }
+    
+                    .button_edit{
+                        margin-right: 10px;
+                    }
+                    .button_delete{
+                        background-color: #B1B1B1;
+                    }
+                    svg {
+                        margin-right: 16px;
+                    }
+                }
+                
+            }
+        }
+        h1 {
+            margin-bottom: 26px;
+        }
+    }
+
+    .crumbs {
+        font-size: 12px;
+        color: #656565;
+        padding-top: 17px;
+        padding-left: 21px;
+    }
+}
+
