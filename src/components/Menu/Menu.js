@@ -8,10 +8,10 @@ export default class Menu extends Component {
     super(props);
     this.state = {
     };
-    this.selectorSvg = this.selectorSvg.bind(this);
+    this.iconSelector = this.iconSelector.bind(this);
   }
 
-  selectorSvg(id) {
+  iconSelector(id) {
     switch (id) {
       case 1:
         return (
@@ -287,22 +287,22 @@ export default class Menu extends Component {
 
   render() {
     return (
-      <div className={styles.menu}>
-        <div className={styles.logo}>
+      <nav className={"d-flex flex-column align-items-start align-items-sm-start min-vh-100 "+styles.menu}>
+        <div className={"pt-4 px-1 ps-lg-4 mb-4 "+styles.logo}>
           <img src={worklogo} />
         </div>
-        <ul>
+        <ul className="nav nav-pills flex-column align-items-start">
           {this.props.menu.map((item) => (
             <MenuItem
               key={item.id}
               item={item}
-              selectorSvg={this.selectorSvg}
+              iconSelector={this.iconSelector}
               selectedMenuId={this.props.selectedMenuId}
               selectMenu={this.props.selectMenu}
             />
           ))}
         </ul>
-      </div>
+      </nav>
     );
   }
 }

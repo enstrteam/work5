@@ -17,8 +17,8 @@ function Crumbs(props) {
             <path
               d="M1 1L6 4.5L1 8"
               stroke="#656565"
-              stroke-width="1.5"
-              stroke-linecap="round"
+              strokeWidth="1.5"
+              strokeLinecap="round"
             />
           </svg>
         )}

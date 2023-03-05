@@ -1,100 +1,97 @@
-$side-bar-width: 256px;
+$header-color: #343434;
+$basic-color: #7D7D7D;
+$dropdown-color: #7C7C7C;
+$crumbs-color: #656565;
+$table-color: #6E6E6E;
+$purple-color: #6666CC;
+
+$font-basic-size: 14px;
+$font-small-size: 12px;
+$font-header-size: 20px;
+
+$green-button-color: #55c97b;
+$green-button-color-hover: #4bb46e;
+$gray-button-color: #b1b1b1;
+$gray-button-color-hover: #949292;
+
+$radius: 5px;
+
+@mixin thead-style {
+  font-weight: normal;
+  color: $header-color;
+  border-bottom: none;
+}
+
+@mixin table-style {
+  background-color: white;
+  box-shadow: 0px 11px 21px 0px #28282812;
+  border-radius: $radius;
+}
+
+@mixin button-style {
+  background-color: $green-button-color;
+  padding: 3px 20px 3px 16px;
+  border-radius: $radius;
+  border: none;
+  color: white;
+  font-size: $font-small-size;
+  display: flex;
+  align-items: center;
+  &:hover {
+    background-color: $green-button-color-hover;
+    color: white;
+  }
+}
+
+@mixin center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 h1 {
-    font-size:20px;
+  font-size: $font-header-size;
 }
 
-.sidebar{
-    min-width: $side-bar-width;
-    min-height:100vh;
+li {
+  list-style: none;
 }
 
-.maincontent {
-
-    $left-spacing: 315px - 256px;
-    padding-left: $left-spacing;
-
-    .storemanagement {
-        padding-top: 59px;
-        padding-left: 21px;
-
-        button {
-            background-color: #55C97B;
-            padding: 8px 20px 8px 16px;
-            border-radius: 5px;
-            border: none;
-            color:white;
-            font-size: 12px;
-            display: flex;
-            align-items: center;
+.store {
+  button {
+    @include button-style;
+  }
+  .add_icon {
+    font-size: 20px;
+  }
+  .table_wrapper {
+    @include table-style;
+    table {
+      tr {
+        &:last-child {
+          td {
+            border-bottom: none;
+          }
         }
-        .add_icon {
-            font-size: 20px;
-            font-weight: bold;
-            margin-right: 12px;
+        th {
+          @include thead-style;
         }
-        .wrapper {
-            padding-top: 36px;
-
-            .table_wrapper {
-                $px: 346px-315px;
-                $py:243px-215px;
-                padding: $py $px;
-                background-color: white;
-                box-shadow: 0px 11px 21px 0px #28282812;
-                border-radius: 5px;
-                table {
-                    margin-bottom: 0;
-                    tr {
-
-                        &:last-child {
-                            td {
-                                border-bottom: none;
-                            }
-                        }
-                        th {
-                            padding-bottom: 13px;
-                            padding-left: 0;
-                            font-weight: normal;
-                            color:#343434;
-                            border-bottom: none;
-                        }
-                        td {
-                            padding:13px 50px 13px 0;
-                            color:#6e6e6e;
-                        }
-        
-                    }
-                    .second_td {
-                        padding-right: 70px;
-                    }
-                    .last_td {
-                        padding-right: 0;
-                    }
-    
-                    .button_edit{
-                        margin-right: 10px;
-                    }
-                    .button_delete{
-                        background-color: #B1B1B1;
-                    }
-                    svg {
-                        margin-right: 16px;
-                    }
-                }
-                
-            }
+        td {
+          color: $table-color;
         }
-        h1 {
-            margin-bottom: 26px;
+      }
+      .button_edit {
+      }
+      .button_delete {
+        background-color: $gray-button-color;
+        &:hover {
+          background-color: $gray-button-color-hover;
         }
+      }
     }
-
-    .crumbs {
-        font-size: 12px;
-        color: #656565;
-        padding-top: 17px;
-        padding-left: 21px;
-    }
+  }
 }
-
+.crumbs {
+  font-size: $font-small-size;
+  color: $crumbs-color;
+}

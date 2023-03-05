@@ -1,62 +1,38 @@
-@import '../Main/Main.module.scss';
+@import "../Main/Main.module.scss";
 
 .menu {
-    width: $side-bar-width;
-    background-color: white;
-    min-height: 100vh;
-    position: fixed;
-    left: 0;
-    top: 0;
-    ul {
-        padding: 0;
-        li {
-            margin-bottom: 1px;
-            svg {
-                margin-right: 20px;
-            }
-            .rect {
-                width:4px;
-                height: 49px;
-                margin-right: 21px;
-            }
-            span {
-    
-                color:#7D7D7D;
-            }
-            &:hover, &.selected {
-                cursor: pointer;
-                svg{
-                    path{
-                        stroke:#6666cc;
-                    }
-                }
-                .rect {
-                    background-color:#6666cc;
-                    box-shadow: 0 2px 10px 0px #6666ccab;
-                }
-                span {
-                    color: #343434;
-                }
-            } 
-        }
-    }
-}
-
-li {
-    list-style: none;
-}
-
-a{
-    text-decoration: none;
-}
-
-.logo {    
-    padding-top: 22px;
-    padding-left: 25px;
-    margin-bottom: 29px;
+  .logo {
     img {
-        width: 82px;
-        height: auto;
+      width: 82px;
+      height: auto;
     }
+  }
+  ul {
+    li {
+      margin-bottom: 1px;
+      .rect {
+        width: 4px;
+        height: 49px;
+      }
+      span {
+        color: $basic-color;
+      }
+      &:hover,
+      &.selected {
+        cursor: pointer;
+        svg {
+          path {
+            stroke: $purple-color;
+          }
+        }
+        .rect {
+          background-color: $purple-color;
+          box-shadow: 0 2px 10px 0px rgba($color: $purple-color, $alpha: 0.67);
+        }
+        span {
+          color: $header-color;
+        }
+      }
+    }
+  }
 }
-
