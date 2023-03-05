@@ -11,7 +11,7 @@ export default class App extends Component {
 
     this.state = {
       showModalState: false,
-      selectedMenuId: 1,
+      selectedMenuId: 2,
       menu: [
         {
           id: 1,
@@ -75,28 +75,40 @@ export default class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <Header />
-        </header>
-        <main>
-          <Menu
-            menu={this.state.menu}
-            selectMenu={this.selectMenu}
-            selectedMenuId={this.state.selectedMenuId}
-          />
-          <Main
-            showModal={this.showModal}
-            menu={this.state.menu}
-            selectedMenuId={this.state.selectedMenuId}
-          />
-          {this.state.showModalState && (
-            <Modal
-              showModal={this.showModal}
-              showModalState={this.state.showModalState}
-            />
-          )}
-        </main>
-        <footer></footer>
+          <div className="container-fluid">
+            <div className="row d-flex flex-nowrap">
+              <div className="col-auto px-0 bg-white"> 
+              {/* col-md-3 col-xl-2  */}
+                <Menu
+                  menu={this.state.menu}
+                  selectMenu={this.selectMenu}
+                  selectedMenuId={this.state.selectedMenuId}
+                />
+              </div>
+              <div className="col ps-md-2 ps-xxl-5">
+                <header>
+                  <Header
+                    menu={this.state.menu}
+                    selectedMenuId={this.state.selectedMenuId}
+                  />
+                </header>
+                <main>
+                  <Main
+                    showModal={this.showModal}
+                    menu={this.state.menu}
+                    selectedMenuId={this.state.selectedMenuId}
+                  />
+                  {this.state.showModalState && (
+                    <Modal
+                      showModal={this.showModal}
+                      showModalState={this.state.showModalState}
+                    />
+                  )}
+                </main>
+                <footer></footer> 
+              </div>
+            </div>
+          </div>
       </div>
     );
   }
