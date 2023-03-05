@@ -3,7 +3,7 @@ import style from "./Main/Main.module.scss";
 
 function Crumbs(props) {
   return (
-    <div className={style.crumbs}>
+    <div className={"d-none d-sm-flex "+style.crumbs}>
       <span>
         Главная &nbsp;
         {props.menu[props.selectedMenuId - 1].title !== "Главная" && 

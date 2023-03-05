@@ -1,9 +1,16 @@
+
+$primary: black;
+$offcanvas-horizontal-width: auto;
+
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import './components/Main/Main.module.scss';
 
 body {
     background-color: #F8FAFF;
     font-family: 'Roboto', sans-serif;
     font-weight: normal;
-    font-size: 14px;
+    font-size: $font-basic-size;
     line-height: 21px;
 }

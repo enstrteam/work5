@@ -77,7 +77,7 @@ export default class App extends Component {
       <div className="App">
           <div className="container-fluid">
             <div className="row d-flex flex-nowrap">
-              <div className="col-auto px-0 bg-white"> 
+              <div className="col-auto px-0 bg-white offcanvas-sm offcanvas-start" data-bs-backdrop="true" id="menu"> 
                 <Menu
                   menu={this.state.menu}
                   selectMenu={this.selectMenu}
