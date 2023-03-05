@@ -20,7 +20,7 @@ export default class Header extends Component {
             menu={this.props.menu}
             selectedMenuId={this.props.selectedMenuId}
             />
-          </div>      
+          </div>    
           <div className="d-flex justify-content-start">
             <div className={"me-3 "+styles.header__svg}>
               <svg width="24" height="18" viewBox="0 0 24 18" fill="none" xmlns="http://www.w3.org/2000/svg">

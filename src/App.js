@@ -78,7 +78,6 @@ export default class App extends Component {
           <div className="container-fluid">
             <div className="row d-flex flex-nowrap">
               <div className="col-auto px-0 bg-white"> 
-              {/* col-md-3 col-xl-2  */}
                 <Menu
                   menu={this.state.menu}
                   selectMenu={this.selectMenu}
