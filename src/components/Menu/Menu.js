@@ -289,7 +289,7 @@ export default class Menu extends Component {
     return (
       <nav className={"d-flex flex-column align-items-start align-items-sm-start min-vh-100 "+styles.menu}>
         <div className={"pt-4 px-1 ps-lg-4 mb-4 "+styles.logo}>
-          <img src={worklogo} />
+          <img src={worklogo} alt="WORK 5"/>
         </div>
         <ul className="nav nav-pills flex-column align-items-start">
           {this.props.menu.map((item) => (
@@ -297,8 +297,6 @@ export default class Menu extends Component {
               key={item.id}
               item={item}
               iconSelector={this.iconSelector}
-              selectedMenuId={this.props.selectedMenuId}
-              selectMenu={this.props.selectMenu}
             />
           ))}
         </ul>

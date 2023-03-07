@@ -1,28 +1,40 @@
 import React from "react";
-import style from "./Main/Main.module.scss";
+import { useMatches } from "react-router-dom";
+import style from "./StoresManagement/StoresManagement.module.scss";
 
-function Crumbs(props) {
+function Crumbs() {
+  const matches = useMatches();
+  const crumbs = matches
+    .filter((match) => Boolean(match.handle?.crumb))
+    .map((match) => match.handle.crumb(match.data));
   return (
-    <div className={"d-none d-sm-flex "+style.crumbs}>
+    <div className={"d-none d-sm-flex " + style.crumbs}>
       <span>
-        Главная &nbsp;
-        {props.menu[props.selectedMenuId - 1].title !== "Главная" && 
-          (<svg
-            width="8"
-            height="9"
-            viewBox="0 0 8 9"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M1 1L6 4.5L1 8"
-              stroke="#656565"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-            />
-          </svg>
-        )}
-        {props.menu[props.selectedMenuId - 1].title !== "Главная" && " " + props.menu[props.selectedMenuId - 1].title}
+        {crumbs.map((crumb, index) => (
+          <span key={index}>
+            {index !== 0 && (
+              <span>
+                &nbsp;
+                <svg
+                  width="8"
+                  height="9"
+                  viewBox="0 0 8 9"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M1 1L6 4.5L1 8"
+                    stroke="#656565"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                  />
+                </svg>
+                &nbsp;
+              </span>
+            )}
+            {crumb}
+          </span>
+        ))}
       </span>
     </div>
   );

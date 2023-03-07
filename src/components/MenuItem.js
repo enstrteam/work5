@@ -1,21 +1,12 @@
 import React, { Component } from "react";
+import { NavLink } from "react-router-dom";
 import styles from "./Menu/Menu.module.scss";
 
 export default class Item extends Component {
   render() {
     return (
-      <li
-        className={`nav-item ${
-          this.props.item.id === this.props.selectedMenuId
-            ? styles.selected
-            : ""
-        }`}
-      >
-        <a className="nav-link p-0 text-decoration-none"
-          onClick={(event) => {
-            this.props.selectMenu(this.props.item.id);
-          }}
-        >
+      <li>
+        <NavLink to={this.props.item.url} className={({isActive})=>isActive ? styles.selected : undefined}>
           <div className="d-flex align-items-center">
             <div className={"me-3 "+styles.rect}></div>
             <div className="ps-3 ps-lg-1 me-3">
@@ -23,7 +14,7 @@ export default class Item extends Component {
             </div>
             <span className="d-none d-lg-inline ps-1 me-3">{this.props.item.title}</span>
           </div>
-        </a>
+        </NavLink>
       </li>
     );
   }

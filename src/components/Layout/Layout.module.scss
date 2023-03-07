@@ -51,46 +51,5 @@ $radius: 5px;
 }
 
 h1 {
-  font-size: $font-header-size;
-}
-
-li {
-  list-style: none;
-}
-
-.store {
-  button {
-    @include button-style;
-  }
-  .add_icon {
     font-size: $font-header-size;
-  }
-  .table_wrapper {
-    @include table-style;
-    table {
-      tr {
-        &:last-child {
-          td {
-            border-bottom: none;
-          }
-        }
-        th {
-          @include thead-style;
-        }
-        td {
-          color: $table-color;
-        }
-      }
-      .button_delete {
-        background-color: $gray-button-color;
-        &:hover {
-          background-color: $gray-button-color-hover;
-        }
-      }
-    }
-  }
-}
-.crumbs {
-  font-size: $font-small-size;
-  color: $crumbs-color;
 }

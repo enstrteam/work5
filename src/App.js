@@ -1,9 +1,22 @@
-import Menu from "./components/Menu/Menu";
-import Main from "./components/Main/Main";
-import Header from "./components/Header/Header";
-import Modal from "./components/Modal/Modal";
+import { Home } from "./pages/Home";
+import { Stores } from "./pages/Stores";
+import { Promo } from "./pages/Promo";
+import { Statistics } from "./pages/Statistics";
+import { Balance } from "./pages/Balance";
+import { Profile } from "./pages/Profile";
+import { FAQ } from "./pages/Faq";
+import { Support } from "./pages/Support";
+import { Exit } from "./pages/Exit";
+import Layout from "./components/Layout/Layout";
 
 import React, { Component } from "react";
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Link,
+  Route,
+  RouterProvider,
+} from "react-router-dom";
 
 export default class App extends Component {
   constructor(props) {
@@ -16,46 +29,55 @@ export default class App extends Component {
         {
           id: 1,
           title: "Главная",
+          url: "/",
           isSelected: false,
         },
         {
           id: 2,
           title: "Мои магазины",
+          url: "/mystores",
           isSelected: false,
         },
         {
           id: 3,
           title: "Промоматериалы",
+          url: "/promo",
           isSelected: false,
         },
         {
           id: 4,
           title: "Статистика",
+          url: "/statistics",
           isSelected: false,
         },
         {
           id: 5,
           title: "Баланс",
+          url: "/balance",
           isSelected: false,
         },
         {
           id: 6,
           title: "Персональные данные",
+          url: "/profile",
           isSelected: false,
         },
         {
           id: 7,
           title: "FAQ",
+          url: "/faq",
           isSelected: false,
         },
         {
           id: 8,
           title: "Техподдержка",
+          url: "/support",
           isSelected: false,
         },
         {
           id: 9,
           title: "Выход",
+          url: "/exit",
           isSelected: false,
         },
       ],
@@ -73,42 +95,69 @@ export default class App extends Component {
   }
 
   render() {
-    return (
-      <div className="App">
-          <div className="container-fluid">
-            <div className="row d-flex flex-nowrap">
-              <div className="col-auto px-0 bg-white offcanvas-sm offcanvas-start" data-bs-backdrop="true" id="menu"> 
-                <Menu
-                  menu={this.state.menu}
-                  selectMenu={this.selectMenu}
-                  selectedMenuId={this.state.selectedMenuId}
-                />
-              </div>
-              <div className="col ps-md-2 ps-xxl-5">
-                <header>
-                  <Header
-                    menu={this.state.menu}
-                    selectedMenuId={this.state.selectedMenuId}
-                  />
-                </header>
-                <main>
-                  <Main
-                    showModal={this.showModal}
-                    menu={this.state.menu}
-                    selectedMenuId={this.state.selectedMenuId}
-                  />
-                  {this.state.showModalState && (
-                    <Modal
-                      showModal={this.showModal}
-                      showModalState={this.state.showModalState}
-                    />
-                  )}
-                </main>
-                <footer></footer> 
-              </div>
-            </div>
-          </div>
-      </div>
+    const router = createBrowserRouter(
+      createRoutesFromElements(
+        <Route
+          path="/"
+          element={
+            <Layout menu={this.state.menu} selectMenu={this.selectMenu} />
+          }
+          handle={{ crumb: () => <Link to="/">Главная</Link> }}
+        >
+          <Route index element={<Home />} />
+          <Route
+            path="mystores"
+            element={
+              <Stores
+                menu={this.state.menu}
+                showModal={this.showModal}
+                showModalState={this.state.showModalState}
+              />
+            }
+            handle={{ crumb: () => <Link to="mystores">Мои магазины</Link> }}
+          />
+          <Route
+            path="promo"
+            element={<Promo />}
+            handle={{ crumb: () => <Link to="promo">Промоматериалы</Link> }}
+          />
+          <Route
+            path="statistics"
+            element={<Statistics />}
+            handle={{ crumb: () => <Link to="statistics">Статистика</Link> }}
+          />
+          <Route
+            path="balance"
+            element={<Balance />}
+            handle={{ crumb: () => <Link to="balance">Баланс</Link> }}
+          />
+          <Route
+            path="profile"
+            element={<Profile />}
+            handle={{ crumb: () => <Link to="profile">Персональные данные</Link> }}
+          />
+          <Route
+            path="faq"
+            element={<FAQ />}
+            handle={{ crumb: () => <Link to="faq">FAQ</Link> }}
+          />
+          <Route
+            path="support"
+            element={
+              <Support
+                handle={{ crumb: () => <Link to="support">Поддержка</Link> }}
+              />
+            }
+          />
+          <Route
+            path="exit"
+            element={<Exit />}
+            handle={{ crumb: () => <Link to="exit">Выход</Link> }}
+          />
+        </Route>
+      )
     );
+
+    return <RouterProvider router={router} />;
   }
 }

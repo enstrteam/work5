@@ -1,11 +1,10 @@
-
-$primary: black;
 $offcanvas-horizontal-width: auto;
+$bs-heading-color: #343434;
 
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-@import './components/Main/Main.module.scss';
+@import './components/Layout/Layout.module.scss';
 
 body {
     background-color: #F8FAFF;

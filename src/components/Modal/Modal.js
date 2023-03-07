@@ -145,7 +145,7 @@ export default class Modal extends Component {
               использовать словосочетание Work 5. После создания магазина Вы
               сможете прикрутить свой домен (например ivangrozniy.ru). Подробнее
               по{" "}
-              <a className="text-decoration-none" href="">
+              <a className="text-decoration-none" href="/support">
                 ссылке
               </a>
             </div>

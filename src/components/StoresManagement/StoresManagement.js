@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import style from "./Main/Main.module.scss";
+import style from "./StoresManagement.module.scss";
 
 export default class StoreManagement extends Component {
   constructor(props) {
@@ -109,24 +109,26 @@ export default class StoreManagement extends Component {
 
   render() {
     return (
-      <div className={style.store}>
-        <div className="row mb-3">
-          <div>
-            <button type="button" className="btn" onClick={(event) => {this.props.showModal();}}>
-              <span className={"me-3 fw-bold "+style.add_icon}>+</span>Создать свой магазин
-            </button>
+      <div className="container-fluid pt-2">
+        <div className={style.store}>
+          <div className="row mb-3">
+            <div>
+              <button type="button" className="btn" onClick={(event) => {this.props.showModal();}}>
+                <span className={"me-3 fw-bold "+style.add_icon}>+</span>Создать свой магазин
+              </button>
+            </div>
           </div>
-        </div>
-        <div className="row pt-3">
-          <h1 className="mb-4">Управление магазинами</h1>
-          <div className="">
-            <div className={"table-responsive col-xl-11 px-2 px-xl-4 py-2 "+style.table_wrapper}>
-              <table className="table align-middle">
-                <thead>
-                  <tr>{this.theadShow()}</tr>
-                </thead>
-                <tbody>{this.tableDataShow()}</tbody>
-              </table>
+          <div className="row pt-3">
+            <h1 className="mb-4">Управление магазинами</h1>
+            <div className="">
+              <div className={"table-responsive col-xl-11 px-2 px-xl-4 py-2 "+style.table_wrapper}>
+                <table className="table align-middle">
+                  <thead>
+                    <tr>{this.theadShow()}</tr>
+                  </thead>
+                  <tbody>{this.tableDataShow()}</tbody>
+                </table>
+              </div>
             </div>
           </div>
         </div>
